@@ -19,16 +19,16 @@ jobs:
       with:
         node-version: '18.x'
         cache: 'npm' # Tăng tốc độ
-        # SỬA 1: Đường dẫn cache-dependency-path phải trỏ vào trong thư mục frontend
-        cache-dependency-path: ./coffeeshop-frontend/package-lock.json
+        # SỬA 1: Xóa bỏ đường dẫn 'coffeeshop-frontend'
+        # vì file 'package-lock.json' nằm ngay ở gốc
+        cache-dependency-path: ./package-lock.json
 
     - name: Cài đặt dependencies (npm install)
-      # SỬA 2: Bắt buộc phải thêm "working-directory"
-      # Để chạy lệnh BÊN TRONG thư mục frontend
-      working-directory: ./coffeeshop-frontend
+      # SỬA 2: Xóa bỏ 'working-directory'
+      # vì đã ở đúng thư mục gốc
       run: npm install
 
     - name: Build Frontend (Kiểm tra lỗi và bỏ qua Cảnh báo)
-      # SỬA 3: Thêm "working-directory" VÀ "CI=false"
-      working-directory: ./coffeeshop-frontend
+      # SỬA 3: Xóa bỏ 'working-directory' VÀ giữ 'CI=false'
       run: CI=false npm run build
+
