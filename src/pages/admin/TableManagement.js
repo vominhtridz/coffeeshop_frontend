@@ -61,9 +61,11 @@ const TableManagement = () => {
   return (
     <div className="admin-container">
       <h1>Quản Lý Bàn</h1>
-      
-      {/* Form Thêm Bàn */}
-      <div className="admin-card">
+      {
+        loading ? (
+          <p>Đang tải danh sách bàn...</p>
+        ) : <>
+        <div className="admin-card">
         <h2>Thêm Bàn Mới</h2>
         <form className="admin-form" onSubmit={handleAddTable}>
           <div className="form-group">
@@ -100,6 +102,10 @@ const TableManagement = () => {
           ))}
         </div>
       </div>
+        </>
+      }
+      {/* Form Thêm Bàn */}
+      
     </div>
   );
 };

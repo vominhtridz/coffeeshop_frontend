@@ -62,5 +62,5 @@ class AuthService {
   }
 }
 
-// Xuất ra một instance duy nhất của class
-export default new AuthService();
+const authService = new AuthService();
+export default authService;

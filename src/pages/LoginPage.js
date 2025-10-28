@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
@@ -8,7 +8,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login, isAdmin } = useAuth(); // Lấy hàm login từ context
+  const { login } = useAuth(); // Lấy hàm login từ context
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
